@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;700;800&family=Tinos:wght@400;700&display=swap" rel="stylesheet">
+    <title>Admin Panel | Dance Studio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="admin-page">
+    <main class="admin-shell">
+        <section class="admin-auth-card" id="login-screen">
+            <div class="page-eyebrow">Admin Panel</div>
+            <h1 class="section-title">Вход администратора</h1>
+            <p class="page-text admin-hint">Стандартный логин создается автоматически при первом запуске backend. Смените его в `.env` перед продакшеном.</p>
+            <form id="login-form" class="admin-form">
+                <label>
+                    <span>Логин</span>
+                    <input type="text" name="username" placeholder="admin" required>
+                </label>
+                <label>
+                    <span>Пароль</span>
+                    <input type="password" name="password" placeholder="admin12345" required>
+                </label>
+                <button class="button" type="submit">Войти</button>
+            </form>
+            <div id="login-message" class="admin-message"></div>
+        </section>
+
+        <section class="admin-panel hidden" id="admin-screen">
+            <div class="admin-topbar">
+                <div>
+                    <div class="page-eyebrow">Панель управления</div>
+                    <h1 class="section-title">Контент студии</h1>
+                </div>
+                <button class="ghost-button" id="logout-btn" type="button">Выйти</button>
+            </div>
+
+            <div class="admin-grid">
+                <div class="admin-card">
+                    <h2>Новый ивент</h2>
+                    <form id="event-form" class="admin-form compact-form">
+                        <input type="hidden" name="id">
+                        <label><span>Название</span><input type="text" name="title" required></label>
+                        <label><span>Описание</span><textarea name="description" rows="4" required></textarea></label>
+                        <label><span>Дата и время</span><input type="datetime-local" name="event_date" required></label>
+                        <label><span>Локация</span><input type="text" name="location"></label>
+                        <label><span>Ссылка на изображение</span><input type="text" name="image"></label>
+                        <div class="admin-actions-row">
+                            <button class="button" type="submit">Сохранить</button>
+                            <button class="ghost-button" type="button" id="event-reset">Очистить</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="admin-card">
+                    <h2>Новое занятие</h2>
+                    <form id="schedule-form" class="admin-form compact-form">
+                        <input type="hidden" name="id">
+                        <label><span>Название группы</span><input type="text" name="title" required></label>
+                        <label><span>Преподаватель</span><input type="text" name="teacher" required></label>
+                        <label><span>День недели</span><input type="text" name="weekday" placeholder="Понедельник" required></label>
+                        <div class="admin-time-grid">
+                            <label><span>Начало</span><input type="time" name="start_time" required></label>
+                            <label><span>Конец</span><input type="time" name="end_time" required></label>
+                        </div>
+                        <label><span>Зал</span><input type="text" name="hall"></label>
+                        <label><span>Уровень</span><input type="text" name="level"></label>
+                        <div class="admin-actions-row">
+                            <button class="button" type="submit">Сохранить</button>
+                            <button class="ghost-button" type="button" id="schedule-reset">Очистить</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="admin-grid admin-grid-bottom">
+                <div class="admin-card">
+                    <h2>Ивенты</h2>
+                    <div id="admin-events" class="admin-list"></div>
+                </div>
+                <div class="admin-card">
+                    <h2>Расписание</h2>
+                    <div id="admin-schedule" class="admin-list"></div>
+                </div>
+            </div>
+
+            <div class="admin-card admin-grid-bottom">
+                <h2>Заявки на пробное занятие</h2>
+                <div id="admin-trial-requests" class="admin-list"></div>
+            </div>
+        </section>
+    </main>
+
+    <script src="/static/js/admin.js"></script>
+</body>
+</html>

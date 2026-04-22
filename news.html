@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;700;800&family=Tinos:wght@400;700&display=swap" rel="stylesheet">
+    <title>Ивенты | Dance Studio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="about-page public-page">
+    <header class="page-hero compact-hero">
+        <div class="container">
+            <div class="header-line inner-header-line">
+                <div class="header-logo">
+                    <a href="index.html"><img src="logo/Group 24.png" alt="Dance Studio" width="50" height="50"></a>
+                </div>
+                <nav class="nav">
+                    <a class="nav-item" href="index.html">Главная</a>
+                    <a class="nav-item" href="schedule.html">Расписание</a>
+                    <a class="nav-item nav-item-active" href="news.html">Ивенты</a>
+                    <a class="nav-item" href="about.html">О нас</a>
+                    <a class="nav-item" href="admin.html">Админ</a>
+                </nav>
+            </div>
+            <div class="section-title-wrap section-title-wrap-left page-title-wrap">
+                <div class="page-eyebrow">Лента событий</div>
+                <h1 class="page-title">Предстоящие и прошедшие ивенты студии</h1>
+                <p class="page-text">Страница автоматически тянет данные из базы MongoDB через API. Администратор управляет списком из админ-панели.</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="about-section public-content">
+        <div class="container">
+            <section>
+                <div class="section-title-wrap section-title-wrap-left public-section-head">
+                    <div class="page-eyebrow">Скоро</div>
+                    <h2 class="section-title">Предстоящие ивенты</h2>
+                </div>
+                <div id="upcoming-events" class="content-grid"></div>
+            </section>
+
+            <section class="public-block-gap">
+                <div class="section-title-wrap section-title-wrap-left public-section-head">
+                    <div class="page-eyebrow">Архив</div>
+                    <h2 class="section-title">Прошедшие ивенты</h2>
+                </div>
+                <div id="past-events" class="content-grid"></div>
+            </section>
+        </div>
+    </main>
+
+    <script src="/static/js/public.js"></script>
+</body>
+</html>
